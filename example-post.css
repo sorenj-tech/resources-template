@@ -1,18 +1,20 @@
 /* ============================================
-   Plantilla de post
-   Estructura base
+   Plantilla de post — "Dossier"
    Cabecera + cuerpo transparente + pie
+   Verde botella (#184B44) + oro (#C9A24E)
    ============================================ */
 
 .cm-post {
     --cm-accent: #C9A24E;
+    --cm-accent-soft: rgba(201, 162, 78, 0.35);
     --cm-header-bg: #184B44;
+    --cm-header-bg-dark: #0F332E;
     --cm-footer-bg: #184B44;
     --cm-light-text: #E8E1D0;
     --cm-muted: #A9B7B0;
 
     max-width: 620px;
-    margin: 24px auto;
+    margin: 32px auto;
 
     font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 
@@ -20,6 +22,8 @@
     background: transparent;
 
     position: relative;
+
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.55);
 }
 
 
@@ -28,28 +32,86 @@
    ============================================ */
 
 .cm-post-header {
-    background: var(--cm-header-bg);
+    background: linear-gradient(155deg, var(--cm-header-bg) 0%, var(--cm-header-bg-dark) 100%);
 
-    padding: 28px 36px 24px;
+    padding: 32px 40px 26px;
 
     position: relative;
+
+    overflow: hidden;
+}
+
+/* Marcas de esquina, estilo cartela de museo */
+.cm-post-header::before,
+.cm-post-header::after {
+    content: '';
+
+    position: absolute;
+    top: 10px;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid var(--cm-accent-soft);
+
+    opacity: 0.9;
+}
+
+.cm-post-header::before {
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.cm-post-header::after {
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+/* Emblema de pluma, marca de agua discreta */
+.cm-post-crest {
+    position: absolute;
+    top: 26px;
+    right: 38px;
+
+    font-size: 34px;
+
+    color: var(--cm-accent);
+    opacity: 0.16;
+
+    transform: rotate(18deg);
+
+    pointer-events: none;
 }
 
 
 /* Etiqueta superior */
 
 .cm-post-label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 13px;
+    font-size: 12.5px;
     font-style: italic;
     letter-spacing: 2.5px;
     text-transform: uppercase;
 
     color: var(--cm-accent);
+}
+
+/* Pequeña línea que acompaña a la etiqueta */
+.cm-post-label::after {
+    content: '';
+
+    flex: 1;
+    height: 1px;
+
+    background: var(--cm-accent-soft);
 }
 
 
@@ -58,13 +120,16 @@
 .cm-post-title {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
+
+    position: relative;
+    z-index: 1;
 }
 
 .cm-post-title span {
     font-family: 'Cormorant Garamond', Georgia, serif;
 
-    font-size: 30px;
+    font-size: 31px;
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: 0.5px;
@@ -73,7 +138,7 @@
 }
 
 .cm-post-title span:first-child {
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 500;
     font-style: italic;
     letter-spacing: 3px;
@@ -83,17 +148,35 @@
 }
 
 
-/* Separador */
+/* Separador con rombo central */
 
 .cm-post-rule {
     display: block;
 
+    position: relative;
+
     width: 100%;
     height: 1px;
 
-    margin-top: 18px;
+    margin-top: 20px;
 
     background: rgba(201, 162, 78, 0.55);
+}
+
+.cm-post-rule::after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    background: var(--cm-header-bg);
+    border: 1px solid var(--cm-accent);
+
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 
@@ -118,7 +201,7 @@
 
     color: inherit;
 
-    padding: 28px 36px;
+    padding: 30px 40px;
 
     font-size: 16.5px;
     line-height: 1.85;
@@ -145,9 +228,9 @@
 .cm-post-body::first-letter {
     font-family: 'Cormorant Garamond', Georgia, serif;
 
-    font-size: 46px;
+    font-size: 48px;
     font-weight: 600;
-    line-height: 0.8;
+    line-height: 0.75;
 
     float: left;
 
@@ -157,29 +240,86 @@
 }
 
 
+/* Diálogo hablado — usar <em> dentro del cuerpo */
+.cm-post-body em {
+    font-style: normal;
+
+    color: var(--cm-accent);
+}
+
+/* Pensamientos / énfasis interno — usar <strong> dentro del cuerpo */
+.cm-post-body strong {
+    font-weight: 600;
+    font-style: italic;
+
+    color: inherit;
+    opacity: 0.8;
+}
+
+
 /* ============================================
    PIE
    ============================================ */
 
 .cm-post-footer {
-    background: var(--cm-footer-bg);
+    background: linear-gradient(155deg, var(--cm-footer-bg) 0%, var(--cm-header-bg-dark) 100%);
 
-    padding: 20px 36px 22px;
+    padding: 22px 40px 26px;
+
+    position: relative;
+}
+
+/* Marcas de esquina inferiores */
+.cm-post-footer::before,
+.cm-post-footer::after {
+    content: '';
+
+    position: absolute;
+    bottom: 10px;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid var(--cm-accent-soft);
+}
+
+.cm-post-footer::before {
+    left: 10px;
+    border-right: none;
+    border-top: none;
+}
+
+.cm-post-footer::after {
+    right: 10px;
+    border-left: none;
+    border-top: none;
 }
 
 
 /* Con quién */
 
 .cm-post-ft {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 
     font-family: 'EB Garamond', Georgia, serif;
     font-size: 14.5px;
     font-style: italic;
 
     color: var(--cm-muted);
+}
+
+.cm-post-ft::before {
+    content: '';
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--cm-accent);
+    border-radius: 50%;
 }
 
 .cm-post-ft a {
@@ -194,10 +334,16 @@
         border-color 0.2s ease;
 }
 
-.cm-post-ft a:hover {
+.cm-post-ft a:hover,
+.cm-post-ft a:focus-visible {
     color: var(--cm-light-text);
 
     border-bottom-color: var(--cm-light-text);
+}
+
+.cm-post-ft a:focus-visible {
+    outline: 1px solid var(--cm-accent);
+    outline-offset: 3px;
 }
 
 
@@ -209,7 +355,7 @@
     width: 100%;
     height: 1px;
 
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 
     background: rgba(169, 183, 176, 0.25);
 }
@@ -221,11 +367,11 @@
     display: flex;
     flex-wrap: wrap;
 
-    gap: 10px 22px;
+    gap: 10px 12px;
 }
 
 
-/* Fecha / lugar */
+/* Fecha / lugar — ahora como píldoras */
 
 .cm-post-tag {
     display: inline-flex;
@@ -233,17 +379,26 @@
 
     gap: 7px;
 
+    padding: 5px 12px;
+
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    border-radius: 999px;
+
     font-family: 'EB Garamond', Georgia, serif;
-    font-size: 13px;
+    font-size: 12.5px;
 
     letter-spacing: 1.2px;
     text-transform: uppercase;
 
     color: var(--cm-muted);
+
+    background: rgba(201, 162, 78, 0.06);
 }
 
 .cm-post-tag i {
     color: var(--cm-accent);
+
+    font-size: 11px;
 }
 
 
@@ -254,7 +409,7 @@
 .signature {
     max-width: 620px;
 
-    margin: 6px auto 0;
+    margin: 8px auto 0;
 
     padding-right: 4px;
 
@@ -277,8 +432,14 @@
     transition: opacity 0.2s ease;
 }
 
-.signature a:hover {
+.signature a:hover,
+.signature a:focus-visible {
     opacity: 1;
+}
+
+.signature a:focus-visible {
+    outline: 1px solid var(--cm-accent, #C9A24E);
+    outline-offset: 3px;
 }
 
 
@@ -289,11 +450,17 @@
 @media (max-width: 640px) {
 
     .cm-post {
-        margin: 16px 12px;
+        margin: 20px 12px;
     }
 
     .cm-post-header {
-        padding: 24px 20px 20px;
+        padding: 26px 22px 22px;
+    }
+
+    .cm-post-crest {
+        font-size: 26px;
+        top: 18px;
+        right: 20px;
     }
 
     .cm-post-title span {
@@ -301,7 +468,7 @@
     }
 
     .cm-post-body {
-        padding: 24px 20px;
+        padding: 24px 22px;
 
         font-size: 15.5px;
 
@@ -309,11 +476,11 @@
     }
 
     .cm-post-footer {
-        padding: 18px 20px 20px;
+        padding: 20px 22px 24px;
     }
 
     .cm-post-meta {
-        gap: 8px 16px;
+        gap: 8px 10px;
     }
 }
 

@@ -1,0 +1,235 @@
+/* ============================================
+   Plantilla de post — tema "Bosque"
+   Paleta: verde bosque #184B44 + dorado envejecido
+   ============================================ */
+
+.cm-post-bosque {
+  --cm-bosque-verde: #184B44;
+  --cm-bosque-dorado: #C9A24E;
+  --cm-bosque-fondo: #0B1512;
+  --cm-bosque-fondo-2: #12211C;
+  --cm-bosque-texto: #E8E1D0;
+  --cm-bosque-salvia: #7A9186;
+
+  max-width: 620px;
+  margin: 24px auto;
+  background: linear-gradient(180deg, var(--cm-bosque-fondo) 0%, var(--cm-bosque-fondo-2) 100%);
+  border: 1px solid rgba(24, 75, 68, 0.55);
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(201, 162, 78, 0.08);
+  padding: 32px 36px 28px;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--cm-bosque-texto) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* El foro suele traer su propio CSS para <p>, <span>, <div> con más
+   especificidad (o con !important). Forzamos aquí el color en cada
+   elemento de texto para que no se herede el negro por defecto. */
+.cm-post-bosque,
+.cm-post-bosque p,
+.cm-post-bosque span,
+.cm-post-bosque div {
+  color: var(--cm-bosque-texto) !important;
+}
+
+/* Vena de color a la izquierda, como una franja de corteza */
+.cm-post-bosque::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--cm-bosque-dorado) 0%, var(--cm-bosque-verde) 55%, transparent 100%);
+}
+
+/* ---------- Título ---------- */
+.cm-post-bosque-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.cm-post-bosque-title span {
+  font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  color: var(--cm-bosque-texto);
+}
+
+.cm-post-bosque-title span:first-child {
+  color: var(--cm-bosque-dorado) !important;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ---------- Divisor orgánico (rama + hoja) ---------- */
+.cm-post-bosque-rule {
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin: 14px 0 22px;
+  position: relative;
+}
+
+.cm-post-bosque-rule::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cm-bosque-verde) 0%, var(--cm-bosque-dorado) 45%, var(--cm-bosque-verde) 100%);
+  opacity: 0.6;
+  transform: translateY(-50%);
+}
+
+.cm-post-bosque-rule::after {
+  /* pequeña hoja en el centro del divisor, dibujada en CSS puro */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 6px;
+  background: var(--cm-bosque-dorado);
+  border-radius: 0 100% 0 100%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 6px rgba(201, 162, 78, 0.5);
+}
+
+/* ---------- Cuerpo del post ---------- */
+.cm-post-bosque-body {
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--cm-bosque-texto);
+  text-align: justify;
+}
+
+.cm-post-bosque-body p {
+  margin: 0 0 16px;
+}
+
+.cm-post-bosque-body p:last-child {
+  margin-bottom: 0;
+}
+
+.cm-post-bosque-body::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 46px;
+  font-weight: 600;
+  float: left;
+  line-height: 0.8;
+  margin: 8px 8px 0 0;
+  color: var(--cm-bosque-dorado) !important;
+}
+
+/* ---------- Pie: con quién / fecha / lugar ---------- */
+.cm-post-bosque-footer {
+  margin-top: 26px;
+}
+
+.cm-post-bosque-ft {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--cm-bosque-salvia) !important;
+  margin-bottom: 12px;
+}
+
+.cm-post-bosque-ft a {
+  color: var(--cm-bosque-dorado) !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 162, 78, 0.4);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cm-post-bosque-ft a:hover {
+  color: var(--cm-bosque-texto) !important;
+  border-bottom-color: var(--cm-bosque-texto);
+}
+
+.cm-post-bosque-line {
+  display: block;
+  height: 1px;
+  background: rgba(122, 145, 134, 0.25);
+  margin-bottom: 14px;
+}
+
+.cm-post-bosque-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
+.cm-post-bosque-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--cm-bosque-salvia) !important;
+}
+
+.cm-post-bosque-tag i {
+  color: var(--cm-bosque-verde) !important;
+  filter: drop-shadow(0 0 3px rgba(24, 75, 68, 0.6));
+}
+
+/* ---------- Firma ---------- */
+.signature-bosque {
+  max-width: 620px;
+  margin: 6px auto 0;
+  text-align: right;
+  padding-right: 4px;
+}
+
+.signature-bosque a {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
+  color: var(--cm-bosque-salvia) !important;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.signature-bosque a:hover {
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .cm-post-bosque {
+    padding: 24px 20px 20px;
+    margin: 16px 12px;
+  }
+  .cm-post-bosque-title span {
+    font-size: 24px;
+  }
+  .cm-post-bosque-body {
+    font-size: 15.5px;
+    text-align: left;
+  }
+}
+
+/* Respeta reduce-motion */
+@media (prefers-reduced-motion: reduce) {
+  .cm-post-bosque-ft a {
+    transition: none;
+  }
+}

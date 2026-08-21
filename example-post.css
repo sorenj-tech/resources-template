@@ -1,0 +1,331 @@
+/* ============================================
+   Plantilla de post
+   Estructura base
+   Cabecera + cuerpo transparente + pie
+   ============================================ */
+
+.cm-post {
+    --cm-accent: #C9A24E;
+    --cm-header-bg: #184B44;
+    --cm-footer-bg: #184B44;
+    --cm-light-text: #E8E1D0;
+    --cm-muted: #A9B7B0;
+
+    max-width: 620px;
+    margin: 24px auto;
+
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+
+    /* El contenedor general NO tiene fondo */
+    background: transparent;
+
+    position: relative;
+}
+
+
+/* ============================================
+   CABECERA
+   ============================================ */
+
+.cm-post-header {
+    background: var(--cm-header-bg);
+
+    padding: 28px 36px 24px;
+
+    position: relative;
+}
+
+
+/* Etiqueta superior */
+
+.cm-post-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    color: var(--cm-accent);
+}
+
+
+/* Título */
+
+.cm-post-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cm-post-title span {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+
+    color: var(--cm-light-text);
+}
+
+.cm-post-title span:first-child {
+    font-size: 15px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--cm-accent);
+}
+
+
+/* Separador */
+
+.cm-post-rule {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-top: 18px;
+
+    background: rgba(201, 162, 78, 0.55);
+}
+
+
+/* ============================================
+   CUERPO
+   ============================================ */
+
+.cm-post-body {
+
+    /*
+     * IMPORTANTE:
+     * No hay background.
+     * El fondo visible será el del foro.
+     */
+
+    background: transparent;
+
+    /*
+     * Heredamos el color del foro.
+     * No utilizamos !important aquí.
+     */
+
+    color: inherit;
+
+    padding: 28px 36px;
+
+    font-size: 16.5px;
+    line-height: 1.85;
+
+    text-align: justify;
+}
+
+
+/* Párrafos */
+
+.cm-post-body p {
+    margin: 0 0 16px;
+
+    color: inherit;
+}
+
+.cm-post-body p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Primera letra */
+
+.cm-post-body::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 0.8;
+
+    float: left;
+
+    margin: 8px 8px 0 0;
+
+    color: var(--cm-accent);
+}
+
+
+/* ============================================
+   PIE
+   ============================================ */
+
+.cm-post-footer {
+    background: var(--cm-footer-bg);
+
+    padding: 20px 36px 22px;
+}
+
+
+/* Con quién */
+
+.cm-post-ft {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 14.5px;
+    font-style: italic;
+
+    color: var(--cm-muted);
+}
+
+.cm-post-ft a {
+    color: var(--cm-accent);
+
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(201, 162, 78, 0.4);
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.cm-post-ft a:hover {
+    color: var(--cm-light-text);
+
+    border-bottom-color: var(--cm-light-text);
+}
+
+
+/* Línea */
+
+.cm-post-line {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 14px;
+
+    background: rgba(169, 183, 176, 0.25);
+}
+
+
+/* Datos */
+
+.cm-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px 22px;
+}
+
+
+/* Fecha / lugar */
+
+.cm-post-tag {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 13px;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    color: var(--cm-muted);
+}
+
+.cm-post-tag i {
+    color: var(--cm-accent);
+}
+
+
+/* ============================================
+   FIRMA
+   ============================================ */
+
+.signature {
+    max-width: 620px;
+
+    margin: 6px auto 0;
+
+    padding-right: 4px;
+
+    text-align: right;
+}
+
+.signature a {
+    font-family: 'EB Garamond', Georgia, serif;
+
+    font-size: 12.5px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    opacity: 0.65;
+
+    transition: opacity 0.2s ease;
+}
+
+.signature a:hover {
+    opacity: 1;
+}
+
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    .cm-post {
+        margin: 16px 12px;
+    }
+
+    .cm-post-header {
+        padding: 24px 20px 20px;
+    }
+
+    .cm-post-title span {
+        font-size: 24px;
+    }
+
+    .cm-post-body {
+        padding: 24px 20px;
+
+        font-size: 15.5px;
+
+        text-align: left;
+    }
+
+    .cm-post-footer {
+        padding: 18px 20px 20px;
+    }
+
+    .cm-post-meta {
+        gap: 8px 16px;
+    }
+}
+
+
+/* ============================================
+   REDUCIR MOVIMIENTO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cm-post-ft a,
+    .signature a {
+        transition: none;
+    }
+}

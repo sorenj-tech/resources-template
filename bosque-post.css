@@ -1,0 +1,497 @@
+/* ============================================
+   Plantilla de post — tema "Bosque"
+   Estructura segmentada (cabecera / cuerpo / pie)
+   Paleta: verde bosque + dorado envejecido + salvia
+   El cuerpo NO lleva fondo -> respeta modo día/noche
+   ============================================ */
+
+.cm-post-bosque {
+    --cm-verde: #184B44;
+    --cm-verde-dark: #0F332E;
+    --cm-dorado: #C9A24E;
+    --cm-dorado-soft: rgba(201, 162, 78, 0.35);
+    --cm-texto: #E8E1D0;
+    --cm-salvia: #7A9186;
+
+    max-width: 620px;
+    margin: 32px auto;
+
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+
+    /* Sin fondo propio: el cuerpo interior hereda el del foro */
+    background: transparent;
+
+    /* Marco fino que mantiene la tarjeta cohesionada en modo día */
+    border: 1px solid var(--cm-dorado-soft);
+    border-radius: 3px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vena lateral, como una franja de corteza, recorre toda la tarjeta */
+.cm-post-bosque::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: linear-gradient(180deg, var(--cm-dorado) 0%, var(--cm-verde) 55%, transparent 100%);
+
+    z-index: 2;
+}
+
+
+/* ============================================
+   CABECERA
+   ============================================ */
+
+.cm-post-bosque-header {
+    background: linear-gradient(155deg, var(--cm-verde) 0%, var(--cm-verde-dark) 100%);
+
+    padding: 30px 38px 24px 42px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* Marcas de esquina, estilo cartela de museo */
+.cm-post-bosque-header::before,
+.cm-post-bosque-header::after {
+    content: '';
+
+    position: absolute;
+    top: 10px;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid var(--cm-dorado-soft);
+}
+
+.cm-post-bosque-header::before {
+    left: 14px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.cm-post-bosque-header::after {
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+/* Emblema de hoja, marca de agua discreta */
+.cm-post-bosque-crest {
+    position: absolute;
+    top: 24px;
+    right: 36px;
+
+    font-size: 32px;
+
+    color: var(--cm-dorado);
+    opacity: 0.16;
+
+    transform: rotate(-15deg);
+
+    pointer-events: none;
+}
+
+
+/* Etiqueta superior (opcional: puedes eliminar el <span> si no la usas) */
+
+.cm-post-bosque-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 8px;
+
+    font-size: 12.5px;
+    font-style: italic;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    color: var(--cm-dorado);
+}
+
+.cm-post-bosque-label::after {
+    content: '';
+
+    flex: 1;
+    height: 1px;
+
+    background: var(--cm-dorado-soft);
+}
+
+
+/* Título */
+
+.cm-post-bosque-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.cm-post-bosque-title span {
+    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+
+    color: var(--cm-texto);
+}
+
+.cm-post-bosque-title span:first-child {
+    font-size: 15px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: var(--cm-dorado);
+    opacity: 0.9;
+}
+
+
+/* Divisor orgánico, con hojita en el centro */
+
+.cm-post-bosque-rule {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 1px;
+
+    margin-top: 18px;
+
+    background: linear-gradient(90deg, transparent 0%, var(--cm-dorado) 45%, transparent 100%);
+
+    opacity: 0.7;
+}
+
+.cm-post-bosque-rule::after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 10px;
+    height: 6px;
+
+    background: var(--cm-dorado);
+    border-radius: 0 100% 0 100%;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    box-shadow: 0 0 6px rgba(201, 162, 78, 0.5);
+}
+
+
+/* ============================================
+   CUERPO
+   ============================================ */
+
+.cm-post-bosque-body {
+
+    /*
+     * IMPORTANTE:
+     * Sin background y sin forzar color.
+     * Así respeta el modo día/noche del foro.
+     */
+
+    background: transparent;
+    color: inherit;
+
+    padding: 28px 38px 28px 42px;
+
+    font-size: 16.5px;
+    line-height: 1.85;
+
+    text-align: justify;
+}
+
+.cm-post-bosque-body p {
+    margin: 0 0 16px;
+
+    color: inherit;
+}
+
+.cm-post-bosque-body p:last-child {
+    margin-bottom: 0;
+}
+
+.cm-post-bosque-body::first-letter {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 0.8;
+
+    float: left;
+
+    margin: 8px 8px 0 0;
+
+    color: var(--cm-dorado);
+}
+
+/* Diálogo hablado — usar <em> dentro del cuerpo */
+.cm-post-bosque-body em {
+    font-style: normal;
+
+    color: var(--cm-dorado);
+}
+
+/* Pensamientos / énfasis interno — usar <strong> dentro del cuerpo */
+.cm-post-bosque-body strong {
+    font-weight: 600;
+    font-style: italic;
+
+    color: inherit;
+    opacity: 0.75;
+}
+
+
+/* ============================================
+   PIE
+   ============================================ */
+
+.cm-post-bosque-footer {
+    background: linear-gradient(155deg, var(--cm-verde) 0%, var(--cm-verde-dark) 100%);
+
+    padding: 20px 38px 24px 42px;
+
+    position: relative;
+}
+
+.cm-post-bosque-footer::before,
+.cm-post-bosque-footer::after {
+    content: '';
+
+    position: absolute;
+    bottom: 10px;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid var(--cm-dorado-soft);
+}
+
+.cm-post-bosque-footer::before {
+    left: 14px;
+    border-right: none;
+    border-top: none;
+}
+
+.cm-post-bosque-footer::after {
+    right: 10px;
+    border-left: none;
+    border-top: none;
+}
+
+
+/* Con quién */
+
+.cm-post-bosque-ft {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    font-style: italic;
+    font-size: 14.5px;
+
+    color: var(--cm-salvia);
+}
+
+.cm-post-bosque-ft::before {
+    content: '';
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--cm-dorado);
+    border-radius: 50%;
+}
+
+.cm-post-bosque-ft a {
+    color: var(--cm-dorado);
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--cm-dorado-soft);
+
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cm-post-bosque-ft a:hover,
+.cm-post-bosque-ft a:focus-visible {
+    color: var(--cm-texto);
+
+    border-bottom-color: var(--cm-texto);
+}
+
+.cm-post-bosque-ft a:focus-visible {
+    outline: 1px solid var(--cm-dorado);
+    outline-offset: 3px;
+}
+
+
+/* Línea */
+
+.cm-post-bosque-line {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 14px;
+
+    background: rgba(122, 145, 134, 0.25);
+}
+
+
+/* Datos */
+
+.cm-post-bosque-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px 12px;
+}
+
+.cm-post-bosque-tag {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 5px 12px;
+
+    border: 1px solid rgba(122, 145, 134, 0.3);
+    border-radius: 999px;
+
+    font-size: 12.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    color: var(--cm-salvia);
+
+    background: rgba(201, 162, 78, 0.05);
+}
+
+.cm-post-bosque-tag i {
+    color: var(--cm-dorado);
+    font-size: 11px;
+
+    filter: drop-shadow(0 0 3px rgba(201, 162, 78, 0.5));
+}
+
+
+/* ============================================
+   FIRMA
+   ============================================ */
+
+.signature-bosque {
+    max-width: 620px;
+
+    margin: 8px auto 0;
+
+    padding-right: 4px;
+
+    text-align: right;
+}
+
+.signature-bosque a {
+    font-family: 'EB Garamond', Georgia, serif;
+
+    font-size: 12.5px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+
+    color: var(--cm-salvia, #7A9186);
+
+    text-decoration: none;
+
+    opacity: 0.75;
+
+    transition: opacity 0.2s ease;
+}
+
+.signature-bosque a:hover,
+.signature-bosque a:focus-visible {
+    opacity: 1;
+}
+
+.signature-bosque a:focus-visible {
+    outline: 1px solid var(--cm-dorado, #C9A24E);
+    outline-offset: 3px;
+}
+
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    .cm-post-bosque {
+        margin: 20px 12px;
+    }
+
+    .cm-post-bosque-header {
+        padding: 24px 20px 20px 24px;
+    }
+
+    .cm-post-bosque-crest {
+        font-size: 24px;
+        top: 16px;
+        right: 18px;
+    }
+
+    .cm-post-bosque-title span {
+        font-size: 24px;
+    }
+
+    .cm-post-bosque-body {
+        padding: 22px 20px 22px 24px;
+
+        font-size: 15.5px;
+
+        text-align: left;
+    }
+
+    .cm-post-bosque-footer {
+        padding: 18px 20px 20px 24px;
+    }
+
+    .cm-post-bosque-meta {
+        gap: 8px 10px;
+    }
+}
+
+
+/* ============================================
+   REDUCIR MOVIMIENTO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cm-post-bosque-ft a,
+    .signature-bosque a {
+        transition: none;
+    }
+}

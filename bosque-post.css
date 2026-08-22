@@ -202,7 +202,7 @@
     z-index: 1;
 }
 
-.cm-post-bosque-title span {
+.cm-post-bosque-title div {
     font-family: 'Josefin Sans', 'Public Sans', Arial, sans-serif;
 
     font-size: 30px;
@@ -215,7 +215,7 @@
     color: var(--cm-texto);
 }
 
-.cm-post-bosque-title span:first-child {
+.cm-post-bosque-title div:first-child {
     font-size: 15px;
     font-weight: 500;
     font-style: italic;
@@ -518,7 +518,7 @@
         right: 18px;
     }
 
-    .cm-post-bosque-title span {
+    .cm-post-bosque-title div {
         font-size: 24px;
     }
 

@@ -68,9 +68,12 @@
 
     overflow: hidden;
 
-    display: flex;
+    display: flex !important;
     align-items: stretch;
     gap: 22px;
+
+    /* Blindaje: que el foro no imponga su justify o display por defecto aquí */
+    text-align: left !important;
 }
 
 /* Imagen del personaje/escena, opcional: si no se incluye el <img>,
@@ -146,7 +149,7 @@
 /* Etiqueta superior (opcional: puedes eliminar el <span> si no la usas) */
 
 .cm-post-bosque-label {
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 10px;
 
@@ -157,6 +160,7 @@
     font-style: italic;
     letter-spacing: 2.5px;
     text-transform: uppercase;
+    text-align: left !important;
 
     color: var(--cm-dorado);
 }
@@ -174,7 +178,7 @@
 /* Título */
 
 .cm-post-bosque-title {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     gap: 8px;
 
@@ -189,6 +193,8 @@
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: 0.5px;
+    text-align: left !important;
+    display: block;
 
     color: var(--cm-texto);
 }
@@ -315,6 +321,9 @@
     padding: 20px 38px 24px 42px;
 
     position: relative;
+
+    /* Blindaje: que el foro no imponga su justify por defecto aquí */
+    text-align: left !important;
 }
 
 .cm-post-bosque-footer::before,
@@ -346,15 +355,17 @@
 /* Datos (fecha, lugar, y ft. integrado en la misma fila) */
 
 .cm-post-bosque-meta {
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     align-items: center;
 
     gap: 10px 24px;
+
+    text-align: left !important;
 }
 
 .cm-post-bosque-tag {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
 
     gap: 7px;
@@ -367,6 +378,7 @@
     font-size: 12.5px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
+    text-align: left !important;
 
     color: var(--cm-salvia);
 

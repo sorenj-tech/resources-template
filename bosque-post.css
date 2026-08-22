@@ -4,12 +4,14 @@
    Paleta: verde bosque + dorado envejecido + salvia
    El cuerpo NO lleva fondo -> respeta modo día/noche
 
-   IMPORTANTE — FUENTE:
-   Usa 'Public Sans' (sans-serif), no viene instalada
-   por defecto en los navegadores. Hay que cargarla,
+   IMPORTANTE — FUENTES:
+   Cuerpo: 'Public Sans' (sans-serif, legible en párrafos largos)
+   Título/etiqueta/capitular: 'Josefin Sans' (sans-serif fina y
+   estilizada, aporta el carácter que antes daba el serif)
+   Ninguna de las dos viene instalada por defecto, hay que cargarlas,
    por ejemplo con esta línea antes de este CSS:
 
-   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
    ============================================ */
 
 .cm-post-bosque {
@@ -80,7 +82,11 @@
     object-fit: cover;
     border-radius: 2px;
 
-    border: 1px solid var(--cm-dorado-soft);
+    /* Marco: borde dorado sólido + una segunda línea fina con hueco,
+       para que parezca un marco de verdad, no un borde plano. */
+    border: 2px solid var(--cm-dorado);
+    outline: 1px solid var(--cm-dorado-soft);
+    outline-offset: 3px;
 }
 
 /* Envoltorio del bloque de texto (etiqueta + título + separador),
@@ -146,6 +152,7 @@
 
     margin-bottom: 8px;
 
+    font-family: 'Josefin Sans', 'Public Sans', Arial, sans-serif;
     font-size: 12.5px;
     font-style: italic;
     letter-spacing: 2.5px;
@@ -176,7 +183,7 @@
 }
 
 .cm-post-bosque-title span {
-    font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Josefin Sans', 'Public Sans', Arial, sans-serif;
 
     font-size: 30px;
     font-weight: 600;
@@ -268,7 +275,7 @@
 }
 
 .cm-post-bosque-body::first-letter {
-    font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Josefin Sans', 'Public Sans', Arial, sans-serif;
 
     font-size: 46px;
     font-weight: 600;

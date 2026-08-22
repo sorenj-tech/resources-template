@@ -36,6 +36,19 @@
 
     position: relative;
     overflow: hidden;
+
+    /*
+     * Blindaje: algunos temas de foro imponen min-height, padding o
+     * vertical-align de tipo tabla a los bloques de contenido de los
+     * posts, dejando un hueco arriba/abajo dentro del propio marco.
+     * Forzamos que la caja mida exactamente lo que ocupa su contenido.
+     */
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    vertical-align: top !important;
 }
 
 /* Vena lateral, como una franja de corteza, recorre toda la tarjeta */
@@ -72,8 +85,11 @@
     align-items: stretch;
     gap: 22px;
 
-    /* Blindaje: que el foro no imponga su justify o display por defecto aquí */
+    /* Blindaje: que el foro no imponga su justify, display, ni una
+       altura mínima ajena aquí */
     text-align: left !important;
+    min-height: 0 !important;
+    height: auto !important;
 }
 
 /* Imagen del personaje/escena, opcional: si no se incluye el <img>,
@@ -268,6 +284,11 @@
     line-height: 1.55;
 
     text-align: justify;
+
+    /* Blindaje: que el foro no fuerce una altura mínima ajena aquí */
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
 }
 
 .cm-post-bosque-body p {
@@ -322,8 +343,12 @@
 
     position: relative;
 
-    /* Blindaje: que el foro no imponga su justify por defecto aquí */
+    /* Blindaje: que el foro no imponga su justify, display, ni una
+       altura mínima ajena aquí */
     text-align: left !important;
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
 }
 
 .cm-post-bosque-footer::before,
@@ -354,7 +379,7 @@
 
 /* Datos (fecha, lugar, y ft. integrado en la misma fila) */
 
-.cm-post-bosque-meta {
+.cm-post-bosque-meta.cm-post-bosque-meta {
     display: flex !important;
     flex-wrap: wrap;
     align-items: center;
@@ -364,7 +389,7 @@
     text-align: left !important;
 }
 
-.cm-post-bosque-tag {
+.cm-post-bosque-tag.cm-post-bosque-tag {
     display: inline-flex !important;
     align-items: center;
 
@@ -391,8 +416,8 @@
 }
 
 /* Variante del tag para "ft." — va empujada a la derecha del todo */
-.cm-post-bosque-tag--ft {
-    margin-left: auto;
+.cm-post-bosque-tag--ft.cm-post-bosque-tag--ft {
+    margin-left: auto !important;
 
     /*
      * El subrayado visible lo lleva el enlace, no la caja del tag.

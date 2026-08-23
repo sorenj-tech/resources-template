@@ -12,6 +12,11 @@
    por ejemplo con esta línea antes de este CSS:
 
    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+   IMPORTANTE — HTML:
+   Pega el código en una sola línea (sin saltos de línea/indentación
+   entre etiquetas). El editor de Foroactivo puede romper el HTML si
+   lleva formato bonito.
    ============================================ */
 
 .cm-post-bosque {
@@ -36,19 +41,6 @@
 
     position: relative;
     overflow: hidden;
-
-    /*
-     * Blindaje: algunos temas de foro imponen min-height, padding o
-     * vertical-align de tipo tabla a los bloques de contenido de los
-     * posts, dejando un hueco arriba/abajo dentro del propio marco.
-     * Forzamos que la caja mida exactamente lo que ocupa su contenido.
-     */
-    display: block !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    padding: 0 !important;
-    vertical-align: top !important;
 }
 
 /* Vena lateral, como una franja de corteza, recorre toda la tarjeta */
@@ -81,15 +73,9 @@
 
     overflow: hidden;
 
-    display: flex !important;
+    display: flex;
     align-items: stretch;
     gap: 22px;
-
-    /* Blindaje: que el foro no imponga su justify, display, ni una
-       altura mínima ajena aquí */
-    text-align: left !important;
-    min-height: 0 !important;
-    height: auto !important;
 }
 
 /* Imagen del personaje/escena, opcional: si no se incluye el <img>,
@@ -162,10 +148,10 @@
 }
 
 
-/* Etiqueta superior (opcional: puedes eliminar el <span> si no la usas) */
+/* Etiqueta superior (opcional: puedes eliminar el div si no la usas) */
 
 .cm-post-bosque-label {
-    display: flex !important;
+    display: flex;
     align-items: center;
     gap: 10px;
 
@@ -176,7 +162,6 @@
     font-style: italic;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    text-align: left !important;
 
     color: var(--cm-dorado);
 }
@@ -194,7 +179,7 @@
 /* Título */
 
 .cm-post-bosque-title {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     gap: 8px;
 
@@ -209,8 +194,6 @@
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: 0.5px;
-    text-align: left !important;
-    display: block;
 
     color: var(--cm-texto);
 }
@@ -284,11 +267,6 @@
     line-height: 1.55;
 
     text-align: justify;
-
-    /* Blindaje: que el foro no fuerce una altura mínima ajena aquí */
-    display: block !important;
-    min-height: 0 !important;
-    height: auto !important;
 }
 
 .cm-post-bosque-body p {
@@ -342,13 +320,6 @@
     padding: 20px 38px 24px 42px;
 
     position: relative;
-
-    /* Blindaje: que el foro no imponga su justify, display, ni una
-       altura mínima ajena aquí */
-    text-align: left !important;
-    display: block !important;
-    min-height: 0 !important;
-    height: auto !important;
 }
 
 .cm-post-bosque-footer::before,
@@ -379,18 +350,16 @@
 
 /* Datos (fecha, lugar, y ft. integrado en la misma fila) */
 
-.cm-post-bosque-meta.cm-post-bosque-meta {
-    display: flex !important;
+.cm-post-bosque-meta {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
 
     gap: 10px 24px;
-
-    text-align: left !important;
 }
 
-.cm-post-bosque-tag.cm-post-bosque-tag {
-    display: inline-flex !important;
+.cm-post-bosque-tag {
+    display: inline-flex;
     align-items: center;
 
     gap: 7px;
@@ -403,7 +372,6 @@
     font-size: 12.5px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    text-align: left !important;
 
     color: var(--cm-salvia);
 
@@ -416,8 +384,8 @@
 }
 
 /* Variante del tag para "ft." — va empujada a la derecha del todo */
-.cm-post-bosque-tag--ft.cm-post-bosque-tag--ft {
-    margin-left: auto !important;
+.cm-post-bosque-tag--ft {
+    margin-left: auto;
 
     /*
      * El subrayado visible lo lleva el enlace, no la caja del tag.

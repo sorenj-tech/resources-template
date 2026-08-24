@@ -100,6 +100,7 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 1.25;  
+    text-align: center;
 
     color: inherit;
 }
@@ -140,7 +141,7 @@
 .cm-post-folio-body strong {
     font-weight: 600;
 
-    color: inherit;+
+    color: inherit;
     opacity: 0.75;
 }
 
@@ -186,8 +187,8 @@
 .cm-post-folio-user{
     font-family: 'Dancing Script', cursive;
     display: inline-flex;
-    align-items: center; 
-    text-align; right;
+    align-items: center;
+    margin-left: auto;
 
     gap: 7px;
 }

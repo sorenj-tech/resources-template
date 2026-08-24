@@ -183,10 +183,11 @@
     opacity: 1;
 }
 
-.cm-post-folio-tag-user{
+.cm-post-folio-user{
     font-family: 'Dancing Script', cursive;
     display: inline-flex;
-    align-items: right;
+    align-items: center; 
+    text-align; right;
 
     gap: 7px;
 }

@@ -128,8 +128,8 @@
     margin-bottom: 0;
 }
 
-/* Diálogo hablado — usar <em> dentro del cuerpo */
-.cm-post-folio-body em {
+/* Diálogo hablado — usar <b> dentro del cuerpo */
+.cm-post-folio-body b {
     font-style: normal;
 
     color: var(--cm-folio-accent);

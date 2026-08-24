@@ -1,0 +1,253 @@
+/* ============================================
+   Plantilla de post — tema "Folio"
+   Basada en Basic: cabecera + cuerpo + pie, un
+   solo acento de color (adaptable al grupo del
+   personaje). Añade sobre Basic:
+   - Serif en cabecera/pie, sans-serif en el cuerpo
+   - Iconos para lugar, tiempo y ft.
+   - Marco de foto que usa el color de acento
+
+   ACENTO DE COLOR:
+   Usa var(--accent) con un valor de respaldo, así
+   que si tu foro define esa variable por grupo de
+   personaje, el acento (incluido el marco de la
+   foto) sale solo según quién postee.
+
+   IMPORTANTE — FUENTES:
+   Cabecera/pie: 'Libre Baskerville' (serif)
+   Cuerpo: 'Public Sans' (sans-serif, ya la tenías)
+   Firma: 'Dancing Script' (cursiva, tipo escritura a mano)
+   Hay que cargar las tres, por ejemplo:
+   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+   IMPORTANTE — ICONOS:
+   Usa Font Awesome, hay que cargarlo también:
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+   IMPORTANTE — HTML:
+   Pega el código en una sola línea (sin saltos de
+   línea/indentación entre etiquetas).
+   ============================================ */
+
+.cm-post-folio {
+    --cm-folio-accent: var(--accent, #8A8F98);
+
+    max-width: 600px;
+    margin: 40px auto;
+
+    font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+
+    color: inherit;
+    background: transparent;
+
+    padding: 32px 6px;
+
+    border-top: 1px solid var(--cm-folio-accent);
+    border-bottom: 1px solid var(--cm-folio-accent);
+}
+
+
+/* ============================================
+   CABECERA
+   ============================================ */
+
+.cm-post-folio-header {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding-bottom: 20px;
+    margin-bottom: 26px;
+
+    border-bottom: 1px solid var(--cm-folio-accent);
+}
+
+/* Foto opcional: si no se incluye el <img>, el bloque de texto
+   ocupa todo el ancho. El marco usa el acento, así que cambia de
+   color solo según el grupo del personaje. */
+.cm-post-folio-img {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    border-radius: 2px;
+
+    border: 2px solid var(--cm-folio-accent);
+}
+
+.cm-post-folio-header-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.cm-post-folio-label {
+    margin-bottom: 8px;
+
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    color: var(--cm-folio-accent);
+}
+
+.cm-post-folio-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+
+    color: inherit;
+}
+
+
+/* ============================================
+   CUERPO
+   ============================================ */
+
+.cm-post-folio-body {
+    font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-align: left;
+
+    color: inherit;
+}
+
+.cm-post-folio-body p {
+    margin: 0 0 16px;
+
+    color: inherit;
+}
+
+.cm-post-folio-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Diálogo hablado — usar <em> dentro del cuerpo */
+.cm-post-folio-body em {
+    font-style: normal;
+
+    color: var(--cm-folio-accent);
+}
+
+/* Pensamientos / énfasis interno — usar <strong> dentro del cuerpo */
+.cm-post-folio-body strong {
+    font-weight: 600;
+
+    color: inherit;
+    opacity: 0.75;
+}
+
+
+/* ============================================
+   PIE
+   ============================================ */
+
+.cm-post-folio-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 8px 22px;
+
+    margin-top: 28px;
+    padding-top: 16px;
+
+    border-top: 1px solid var(--cm-folio-accent);
+
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+
+    color: inherit;
+    opacity: 0.65;
+}
+
+.cm-post-folio-tag {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.cm-post-folio-tag i {
+    color: var(--cm-folio-accent);
+    font-size: 11px;
+
+    opacity: 1;
+}
+
+.cm-post-folio-footer a {
+    font-family: 'Dancing Script', cursive;
+    font-size: 17px;
+    font-weight: 600;
+
+    color: var(--cm-folio-accent);
+
+    text-decoration: none;
+
+    border-bottom: 1px solid currentColor;
+
+    opacity: 1;
+}
+
+
+/* ============================================
+   FIRMA
+   ============================================ */
+
+.signature-folio {
+    max-width: 600px;
+
+    margin: 6px auto 0;
+    padding: 0 6px;
+
+    text-align: right;
+}
+
+.signature-folio a {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.3px;
+
+    color: inherit;
+    text-decoration: none;
+
+    opacity: 0.6;
+}
+
+.signature-folio a:hover {
+    opacity: 1;
+}
+
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    .cm-post-folio {
+        margin: 24px 12px;
+        padding: 26px 4px;
+    }
+
+    .cm-post-folio-header {
+        gap: 14px;
+    }
+
+    .cm-post-folio-img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .cm-post-folio-title {
+        font-size: 21px;
+    }
+}

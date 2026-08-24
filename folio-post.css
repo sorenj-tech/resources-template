@@ -90,6 +90,7 @@
     font-size: 10px;
     letter-spacing: 1.8px;
     text-transform: uppercase;
+    text-align: center;
 
     color: var(--cm-folio-accent);
 }
@@ -98,7 +99,7 @@
     font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 32px;
-    line-height: 1.25;
+    line-height: 1.25;  
 
     color: inherit;
 }
@@ -139,7 +140,7 @@
 .cm-post-folio-body strong {
     font-weight: 600;
 
-    color: inherit;
+    color: inherit;+
     opacity: 0.75;
 }
 
@@ -210,15 +211,16 @@
     text-align: right;
 }
 
-.signature-folio a {
+.signature-folio-user {
     font-family: 'Dancing Script', cursive;
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 0.3px;
+    text-align: right;
 
     color: inherit;
     text-decoration: none;
-
+	
     opacity: 0.6;
 }
 

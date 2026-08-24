@@ -27,6 +27,15 @@
    IMPORTANTE — HTML:
    Pega el código en una sola línea (sin saltos de
    línea/indentación entre etiquetas).
+
+   IMPORTANTE — DIÁLOGO Y PENSAMIENTO EN EL CUERPO:
+   Negrita (botón del foro, genera <strong>; <b> escrito
+   a mano también vale) = diálogo hablado, con el acento
+   de color. Cursiva (botón del foro, <i> o <em>) =
+   pensamiento, atenuado con opacidad. Se hizo así porque
+   la negrita para diálogo es la convención que la gente
+   ya usa; la plantilla se adapta a ese hábito en vez de
+   forzar uno nuevo.
    ============================================ */
 
 .cm-post-folio {
@@ -130,16 +139,21 @@
     margin-bottom: 0;
 }
 
-/* Diálogo hablado — usar <b> dentro del cuerpo */
-.cm-post-folio-body b {
+/* Diálogo hablado — negrita (el botón de negrita del foro genera <strong>,
+   por eso <b> y <strong> comparten estilo aquí) */
+.cm-post-folio-body b,
+.cm-post-folio-body strong {
     font-style: normal;
+    font-weight: 600;
 
     color: var(--cm-folio-accent);
 }
 
-/* Pensamientos / énfasis interno — usar <strong> dentro del cuerpo */
-.cm-post-folio-body strong {
-    font-weight: 600;
+/* Pensamientos / énfasis interno — cursiva (el botón de cursiva del foro
+   genera <i> o <em> según el editor, por eso van juntas) */
+.cm-post-folio-body i,
+.cm-post-folio-body em {
+    font-style: italic;
 
     color: inherit;
     opacity: 0.75;
